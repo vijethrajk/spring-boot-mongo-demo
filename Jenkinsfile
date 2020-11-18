@@ -1,6 +1,6 @@
 node{
 
-	stage('SCM checkout'){
+	stage('SCM checkout process'){
 	git credentialsId: 'git_creds', url: 'https://github.com/vijethrajk/spring-boot-mongo-demo.git'
 	}
 	
