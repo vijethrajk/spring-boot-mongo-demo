@@ -10,5 +10,5 @@ public class SpringBootMongoDemoApplication {
 		SpringApplication.run(SpringBootMongoDemoApplication.class, args);
 	}
 	//comments test1
-	//comments test2
+	//comments test2 
 }
