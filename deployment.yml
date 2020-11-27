@@ -1,0 +1,36 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: spring-boot-mongo-demo
+spec:
+  selector:
+     app: spring-boot-mongo-demo
+  ports:
+    - protocol: "TCP"
+      port: 8080
+      targetPort: 80
+      nodePort: 30001
+  type: LoadBalancer
+      
+      
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: spring-boot-mongo-demo
+spec:
+  selector:
+    matchLabels:
+      app: spring-boot-mongo-demo
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: spring-boot-mongo-demo
+    spec:
+      containers:
+      - name: spring-boot-mongo-demo
+        image: vijethrajk/spring-boot-mongo-demo
+        ports:
+        - containerPort: 80
